@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-sm bg-dark">
+
+
+    <!-- Brand/logo -->
+    <div class="navbar-brand" href="#">
+
+        <h5>EXOTIC</h5>
+    </div>
+
+
+
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a [routerLink]="['/trainerlogin']">Trainer</a>
+        </li>
+        <li class="nav-item">
+            <div class="container">
+
+
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" id="loginbtn"
+                    style="font-size: 15px;">
+                    Log in
+                </button>
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Login</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form [formGroup]="loginForm" (ngSubmit)="LoginUser(loginForm.value)">
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control" id="email1" placeholder="Enter email"
+                                            name="email" formControlName="username"
+                                            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                            <div *ngIf="f.username.errors.required">Email is required</div>
+                                            <div *ngIf="f.username.errors.email">Email must be a valid email address
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd">Password:</label>
+                                        <input type="password" class="form-control" id="pass"
+                                            placeholder="Enter password" name="pswd" formControlName="password"
+                                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                            <div *ngIf="f.password.errors.required">Password is required</div>
+
+                                        </div><br>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" name="remember">
+                                            Remember me
+                                        </label>
+                                    </div>
+
+
+                                    <button [disabled]="loading" class="btn btn-info">Login</button>
+
+                                </form>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <div class="container">
+
+
+                <button type="button" class="btn btn-info" [routerLink]="['/usersignup']" style="font-size: 15px;">
+                    Signup
+                </button>
+                

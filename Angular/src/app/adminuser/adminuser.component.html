@@ -1,0 +1,77 @@
+
+ 
+<nav class="navbar navbar-expand-sm bg-dark" >
+    <div class="navbar-brand" href="#">
+
+        <h5>EXOTIC</h5>
+    </div>
+</nav>
+<div>
+<nav class="navbar navbar-expand-sm bg-success" >
+            <ul class="navbar-nav ml-auto">
+                <li class="active"><a routerLink="/adminuser">User</a>
+                <li><a routerLink="/admintrainer">Trainer</a>
+                <li ><a routerLink="/technology">Technology</a>
+            </ul>
+        
+ </nav>
+</div>
+
+ <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+                  <ul class="nav nav-pills nav-justified">        
+                          <li align="center"><h3 style="color: black">Block User</h3></li>
+                  </ul>
+          </div>
+        </div>
+</nav>     
+
+
+    <div class="container">
+                <div class="card my-5">
+                        <div class="card-body">
+                          <table class="table table-hover" id="myTable" height="100"  style="background-color: rgb(67, 233, 136)"  >
+                            <thead class="thead-dark">
+                              <tr style="background-color: crimson">
+                                <th>Profile</th>
+                                <th>User Id</th>
+                                <th>User Name</th>
+                                <th>Email</th> 
+                                <th>Block</th>
+                      
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let one of search1">
+                                <td><a routerLink="/profile1"><img src="../../assets/images/user.png" height="80" width="80"></a></td>
+                                <td>{{ one.userId }}</td>
+                                <td>{{ one.userName }}</td>
+                        
+                                <td>{{ one.userEmail }}</td>               
+                                <td><button  class="btn btn-danger navbar-btn"(click)="deleteUser(one.userId)" data-toggle="modal" data-target="#myModal">Block</button>
+                  
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div></div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- <h4 class="modal-title">Blocked</h4> -->
+            </div>
+            <div class="modal-body">
+              <p>Blocked Successfully</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          </div>
+          </div>
+

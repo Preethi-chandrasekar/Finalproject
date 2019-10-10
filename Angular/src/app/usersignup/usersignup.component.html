@@ -1,0 +1,62 @@
+<app-navbar1></app-navbar1>
+<div class="container pt-3">
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-6 col-md-4">
+
+            <div class="card ">
+                    <div class="card-header">
+                            <h4 >Signup</h4>
+                          </div>
+                <div class="card-body">
+                    <form [formGroup]="signupForm" (ngSubmit)="SignupUser(signupForm)">
+                            <div class="form-group">
+                                    <label for="user">Username</label>
+                                    <input type="email" class="form-control" id="user" placeholder="Enter username" name="user"
+                                        formControlName="username"
+                                        [ngClass]="{ 'is-invalid': submitted && g.username.errors }" />
+                                    <div *ngIf="submitted && g.username.errors" class="invalid-feedback">
+                                        <div *ngIf="g.username.errors.required">Username is required</div>
+                                        <div *ngIf="g.username.errors.email">Email must be a valid email address
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"
+                                formControlName="mail"
+                                [ngClass]="{ 'is-invalid': submitted && g.username.errors }" />
+                            <div *ngIf="submitted && g.username.errors" class="invalid-feedback">
+                                <div *ngIf="g.username.errors.required">Email is required</div>
+                                <div *ngIf="g.username.errors.email">Email must be a valid email address
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password</label>
+                            <input type="password" class="form-control" id="pass1" placeholder="Enter password"
+                                name="pswd" formControlName="password"
+                                [ngClass]="{ 'is-invalid': submitted && g.password.errors }" />
+
+                            <div *ngIf="submitted && g.password.errors" class="invalid-feedback">
+                                <div *ngIf="g.password.errors.required">Password is required</div>
+
+                            </div><br>
+                        </div>
+                        
+                        <div class="form-group form-check">
+                            
+                                <input class="form-check-input" type="checkbox" name="remember">
+                                I agree to the Terms and Conditions
+                            
+                        </div>
+
+
+                        <button [disabled]="loading" type="submit" class="btn btn-info">Signup</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
